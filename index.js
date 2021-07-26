@@ -10,7 +10,12 @@ const server = app.listen(process.env.PORT, () => {
   console.log("Server Running");
 });
 
-io = socket(server);
+io = socket(server, {
+  cors: {
+    origin: '*',
+  }
+});
+
 
 io.on("connection", (socket) => {
   console.log(socket.id);
